@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>mamiQuery</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+    <video autoplay muted loop id="myVideo">
+        <source id="testVideo" src="" type="video/mp4">
+    </video>
+
+
+<div class="content">
+    <script>
+        $(document).ready(function(){
+            $("#drawButton").click(function(){
+                width = $("#enterWidth").val();
+                height = $("#enterHeight").val();
+                color = $("#enterColor").val();
+                $("#square").css({
+                    "background-color": color,
+                    "transition": "1s",
+                    "width": width,
+                    "height": height,
+                    "display": "block",
+                    "margin": "0 auto"
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#changeBgVideo").click(function(){
+                var myArray = [
+                "https://vod-progressive.akamaized.net/exp=1637951685~acl=%2A%2F1277769297.mp4%2A~hmac=61a9cada7d4752692a44cc115dd386ae571015305d53a5beba9dad8593e48b21/vimeo-prod-skyfire-std-us/01/291/13/326457891/1277769297.mp4",
+                "https://vod-progressive.akamaized.net/exp=1637951654~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F4516%2F13%2F347584603%2F1401247163.mp4~hmac=2b14e4651fccf300ba733cf37e5a48f2f3c516d5f2d4da35e9ec1a09aedde173/vimeo-prod-skyfire-std-us/01/4516/13/347584603/1401247163.mp4",
+                "https://vod-progressive.akamaized.net/exp=1637951670~acl=%2A%2F1237770505.mp4%2A~hmac=6268e38751ac0e1c0321676dda95b2906135aae564963100b1bd631199459796/vimeo-prod-skyfire-std-us/01/3845/12/319226268/1237770505.mp4",
+                "https://vod-progressive.akamaized.net/exp=1637949365~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F2306%2F13%2F336531450%2F1333626105.mp4~hmac=a4ac41327b9ee601f7009c980b061b4672fb012c0ba5726c29439b858da31249/vimeo-prod-skyfire-std-us/01/2306/13/336531450/1333626105.mp4"
+                ];
+                var src = myArray[Math.floor(Math.random() * myArray.length)];
+                $("#myVideo").find("#testVideo").attr("src", src)
+                $("#myVideo")[0].load();
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $("#changeBgColor").click(function(){
+                ColorR = Math.floor(Math.random() * 256)
+                ColorG = Math.floor(Math.random() * 256)
+                ColorB = Math.floor(Math.random() * 256)
+                $("body").css({
+                    "background-color": "rgb(" + ColorR + "," + ColorG + "," + ColorB + ")",
+                    "transition": "500ms"
+                })
+            });
+        });
+    </script>
+
+    <div class="center">
+        <button class="buttonType" type="button" id="changeBgVideo">Change Background Video</button>
+        <button class="buttonType" type="button" id="changeBgColor">Change Background Color</button> <br><hr style="width: 35%">
+        <input class="buttonType" type="text" id="enterWidth" placeholder="Enter Width">
+        <input class="buttonType" type="text" id="enterHeight" placeholder="Enter Height">
+        <input type="color" id="enterColor" name="enterColor" value="#ff0000">
+        <button class="buttonType" type="submit" id="drawButton">Draw</button> <br><br>
+        <div class="square" id=square></div> <br>
+    </div>
+    <hr>
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+body {
+    background-color: gray;
+    font-family: Verdana;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+  }
+  
+.content {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 85%;
+    padding: 20px;
+}
+
+.center {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.buttonType {
+    border: 2px solid pink;
+    padding: 10px 15px;
+}
+
+.buttonType:hover, .buttonType:hover, #enterColor:hover {
+    transition: 500ms;
+    background-color: pink;
+}
+
+.buttonType:active, .buttonType:active, #enterColor:active {
+    transition: 200ms;
+    background-color: rgb(255, 148, 166);
+}
+
+#enterColor {
+    border: 2px solid pink;
+}
+
+.square:hover {
+    box-shadow: 4px 4px 0px black;
+}
